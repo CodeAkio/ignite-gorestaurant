@@ -6,15 +6,6 @@ import Modal from '../Modal';
 import Input from '../Input';
 import { FormHandles } from '@unform/core';
 
-interface FoodPlate {
-  id: number;
-  name: string;
-  image: string;
-  price: string;
-  description: string;
-  available: boolean;
-}
-
 interface CreateFoodData {
   name: string;
   image: string;
@@ -38,7 +29,7 @@ const ModalAddFood: React.FC<ModalAddFoodProps> = ({
   const handleSubmit = useCallback(async (food: CreateFoodData) => {
     handleAddFood(food);
     setIsOpen();
-  }, [isOpen]);
+  }, [handleAddFood, setIsOpen]);
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
